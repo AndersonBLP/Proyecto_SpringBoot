@@ -1,6 +1,7 @@
 package com.platzi.marke.persistence.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.sql.Insert;
 import org.springframework.boot.context.properties.bind.Name;
 
 @Entity
@@ -27,6 +28,12 @@ public class Producto {
     private Integer cantidadStock;
 
     private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
+
+
 
     // Metodos Getter and Setter
     public Integer getIdProducto() {
